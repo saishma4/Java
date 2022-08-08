@@ -16,8 +16,5 @@ public class Pattern {
             }
             System.out.println();
         }
-<<<<<<< HEAD
     }
 }
-=======
->>>>>>> 9fd9bc4c9511f9ecc3af746c6509ad7fcb4ce9e9
