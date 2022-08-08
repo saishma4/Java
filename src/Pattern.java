@@ -5,14 +5,14 @@ public class Pattern {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of lines and Charecters:");
         int lines = sc.nextInt();
-        char x=sc.next().charAt(0);
-        char y=sc.next().charAt(0);
+        char char1=sc.next().charAt(0);
+        char char2=sc.next().charAt(0);
         for(int i=0;i<lines;i++){
             for(int j=0;j<=i;j++){
-                System.out.print(x+" ");
+                System.out.print(char1+" ");
             }
             for(int j=0;j<lines-i;j++){
-                System.out.print(y+" ");
+                System.out.print(char2+" ");
             }
             System.out.println();
                 }
