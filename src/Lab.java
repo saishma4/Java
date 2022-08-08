@@ -7,7 +7,7 @@ public class Lab {
         int y = sc.nextInt();
         int z = sc.nextInt();
         int n = sc.nextInt();
-        if(n<=x&&n<=y&&n<=z){
+        if(n<x&&n<y&&n<z){
             if(x<y&&x<z)
             System.out.println("L1");
             else if(y<z)
