@@ -18,16 +18,3 @@ public class Pattern {
                 }
             }
         }
-        /*for(int i=lines; i>0;i++){
-            for(int j=0;j<1;j++){
-                System.out.println("*");
-            }
-        }*/
-        /*while(i<=lines){
-            System.out.println("x");
-            i++;
-        }
-        while(i>=0){
-            System.out.print("#");
-            i--;
-        }*/
