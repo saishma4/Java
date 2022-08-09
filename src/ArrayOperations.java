@@ -28,7 +28,18 @@ public class ArrayOperations {
         System.out.println("median  "+median);
 
         //mode
-        double mode =3*(median)-2*(mean);
+        int max=0;
+        double mode = 0;
+        for(int k=0;k<len;k++){
+            int count=0;
+            for(int l=k+1;l<len;l++){
+                if(numbers[k]==numbers[l])
+                    count++;
+            }
+            if(count>max){
+                max=count;
+                mode =numbers[k];}
+        }
         System.out.println("mode "+mode);
 
     }
