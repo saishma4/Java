@@ -13,7 +13,7 @@ public class Marks {
             if(marks[j]>max)
                 max=marks[j];
         }
-        System.out.println(max);
+        System.out.println();
         //finding min
         for(int k=0;k<marks.length;k++){
             if(marks[k]<min)
