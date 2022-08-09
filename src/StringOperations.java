@@ -27,7 +27,7 @@ public class StringOperations {
         System.out.println(rev);
         //Strings are equal
         if(name.equals(group))
-            System.out.println("Both are equal");
+            System.out.println("equal");
         else
             System.out.println("Not equal");
     }
