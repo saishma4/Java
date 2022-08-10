@@ -1,42 +1,55 @@
 import  java.util.*;
 public class ClassPerformance {
-    public static void topPerformers(int[][] students,int subjectCode){
-
-        int[][] subjectMarks = new int[15][2];
-        for(int i=0;i<15; i++){
-            subjectMarks[i][0]=i;
-            subjectMarks[i][1]=students[i][subjectCode];
+    public static double avgOfSubject(int[][] studentMarks,int subjectCode){
+        int sum=0;
+        for(int i=0;i<15;i++){
+            sum=sum+studentMarks[i][subjectCode];
         }
-        Arrays.sort(subjectMarks, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return 0;
-            }
-        });
+        return (sum/15);
+
     }
-    public static void belowAvgPerformers(int[][] students){
+    public static void belowAvgPerformers(int[][] studentMarks){
         System.out.println("Below Average Performance:");
         for(int i=0;i<15;i++){
             for(int j=0;j<5;j++){
-                if(students[i][j]<50){
-                    System.out.println("Student"+(i+1)+"Total"+(students[i][5]));
+                if(studentMarks[i][j]<50){
+                    System.out.println("Student"+(i+1)+"Total"+(studentMarks[i][5]));
                     break;
                 }
             }
         }
 
     }
+    public static void topPerformers(int[][] studentsMarks,int subjectCode){
 
-    public static void studentTotal(int[][] students){
+        int[][] subjectMarks = new int[15][2];
+        for(int i=0;i<15; i++){
+            subjectMarks[i][0]=i;
+            subjectMarks[i][1]=studentsMarks[i][subjectCode];
+        }
+        Arrays.sort(subjectMarks, new Comparator<int[]>() {
+            @Override
+            public int compare(final int[] o1,final int[] o2) {
+                if(o1[1]<o2[1])
+                    return 1;
+                else
+                    return -1;
+            }
+        });
+        System.out.println("Top 1 performer in class:"+ (subjectMarks[0][0]+1));
+        System.out.println("2nd Top performer in class:"+ (subjectMarks[1][0]+1));
+        System.out.println("3rd Top performer in class:"+ (subjectMarks[2][0]+1));
+    }
+    public static void studentTotal(int[][] studentMarks){
         for(int i=0;i<15;i++){
-            System.out.println("Student 1"+ i+" "+students[i][5]);
+            System.out.println("Student 1"+ i+" "+studentMarks[i][5]);
         }
     }
-    public static void studentRank(int[][] students){
+    public static void studentRank(int[][] studentMarks){
         int[][] rank = new int[15][2];
         for(int i=0;i<15;i++){
             rank[i][0]=i;
-            rank[i][1]=students[i][5];
+            rank[i][1]=studentMarks[i][5];
         }
         Arrays.sort(rank, new Comparator<int[]>() {
             @Override
@@ -55,30 +68,34 @@ public class ClassPerformance {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[][] students = new int[15][6];
+        int[][] studentMarks = new int[15][6];
         int total = 0;
         for (int i = 0; i < 15; i++) {
             System.out.println("Enter Student" + (i + 1) + "marks of five subjects");
             int totalMarks = 0;
             for (int j = 0; j < 5; j++) {
-                students[i][j] = sc.nextInt();
-                total += students[i][j];
-                totalMarks += students[i][j];
+                studentMarks[i][j] = sc.nextInt();
+                total += studentMarks[i][j];
+                totalMarks += studentMarks[i][j];
             }
-            students[i][5] = totalMarks;
+            studentMarks[i][5] = totalMarks;
         }
         //Ranking
-        studentRank(students);
+        studentRank(studentMarks);
         // Total of each
-        studentTotal(students);
+        studentTotal(studentMarks);
         //Top three best performers in each subject
-        topPerformers(students,0);
+        topPerformers(studentMarks,5);
         //Below avg performers in along with their ranks and in which sub they did poor
-        belowAvgPerformers(students);
+        belowAvgPerformers(studentMarks);
         // average of the class performance overall
-        System.out.println("Average of the claa Performance: " + (total / 15));
+        System.out.println("Average of the class Performance: " + (total / 15));
         //average of each subject
-
+        System.out.println("Average of Math Marks: "+avgOfSubject(studentMarks,0));
+        System.out.println("Average of Computer Science Marks: "+avgOfSubject(studentMarks,1));
+        System.out.println("Average of Science Marks: "+avgOfSubject(studentMarks,2));
+        System.out.println("Average of Social Science Marks: "+avgOfSubject(studentMarks,3));
+        System.out.println("Average of  English Marks: "+avgOfSubject(studentMarks,4));
     }
 
     }
