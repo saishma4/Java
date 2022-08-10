@@ -12,11 +12,21 @@ public class Exceptions {
             System.out.println(e.toString());
         }
     }
-
+    public static void nullPointer(){
+        String str = null;
+        try
+        {
+            System.out.println(str.length());
+        }
+        catch (NullPointerException n){
+            System.out.println(n.toString());
+        }
+    }
 
     public static void main(String[] args)
     {
         Exceptions.arithmetic();
+        Exceptions.nullPointer();
 
 
 
