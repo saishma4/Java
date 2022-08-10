@@ -5,8 +5,10 @@ public class BharatBank {
         this.balance=balance;
         this.accountType=accountType;
     }
-    public void deposit(double amount){
+    public void deposit(double amount)
+    {
         this.balance+=amount;
+
     }
     public void withdraw(double amount){
         this.balance+=this.Interest();
